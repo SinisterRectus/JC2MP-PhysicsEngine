@@ -113,7 +113,7 @@ function Sphere:InitModel()
 	AddTriangle( 9,  7,  8)
 	AddTriangle(10,  9,  2)
 
-	for i = 1, self.levels do -- #triangles = 20 * 4^levels
+	for i = 1, config.icosphere_levels do -- #triangles = 20 * 4^levels
 		local temp = {}
 		for _, triangle in ipairs(triangles) do
 			local a = lerp(triangle[1], triangle[2], 0.5):Normalized() * radius

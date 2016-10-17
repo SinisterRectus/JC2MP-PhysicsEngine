@@ -14,7 +14,6 @@ function Sphere:__init(args)
 		drag_coefficient = args.drag_coefficient or 0,
 		friction_coefficient = args.friction_coefficient or 0,
 		radius = args.radius or 1,
-		levels = args.levels or 3,
 	}
 
 	values.linear_velocity = values.dynamic and args.linear_velocity or Vector3()
