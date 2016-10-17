@@ -2,9 +2,12 @@ local ceil = math.ceil
 local format, byte = string.format, string.byte
 
 local timer = Timer()
-local delay = example_config.delay
-local color = example_config.color
-local message = example_config.message
+local delay = 1
+local message = 'Please wait %i second(s) before spawning another sphere!'
+local color = Color.Silver
+
+-- Press Z to spawn a sphere.
+-- A more robust script would restrict spawning server-side, as well.
 
 Events:Subscribe('KeyUp', function(args)
 	if args.key == byte('Z') then
