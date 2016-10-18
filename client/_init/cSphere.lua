@@ -212,7 +212,7 @@ function Sphere:Sync(p1, v1, w1, dt, spheres)
 		local dt = self.sync_timer:GetSeconds()
 		local dp = self.network_position:Distance(p1)
 
-		if dp * dt > config.sync_rate then
+		if dp * dt > config.sync_interval then
 			self.sync_timer:Restart()
 			self.network_position = p1
 			Network:Send('Update', {self.id, p1, v1, w1})
