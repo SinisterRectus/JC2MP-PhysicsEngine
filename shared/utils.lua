@@ -8,7 +8,7 @@ local bodies = {
 
 local characters = {
 	Player = true,
-	CientActor = true,
+	ClientActor = true,
 	LocalPlayer = true,
 }
 
