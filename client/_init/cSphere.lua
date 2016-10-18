@@ -184,7 +184,7 @@ function Sphere:Step(p, v, w, q, dt)
 	p = p + v * dt
 
 	local t = -self.angular_damping * w * w:Length() / v:Length() -- hacky, but works
-	w = w + t * dt
+	w = w + t * dt -- might need to incorporate inertia
 	q = q + w * dt
 
 	return p, v, w, q
@@ -204,8 +204,8 @@ function Sphere:Sync(p1, v1, w1, dt, spheres)
 				break
 			end
 		end
+		self.nearest = nearest
 	end
-	self.nearest = nearest
 
 	if nearest then
 
