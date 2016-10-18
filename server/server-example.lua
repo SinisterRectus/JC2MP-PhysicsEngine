@@ -10,11 +10,6 @@ Network:Subscribe('CreateSphere', function(_, sender)
 	local sphere = Sphere({
 		position = p + q * Vector3(0, 1, -5),
 		linear_velocity = v + q * Vector3(0, 2, -10),
-		restitution = 0.6,
-		drag_coefficient = 0.47,
-		friction_coefficient = 0.3,
-		radius = 0.8,
-		density = 100,
 	})
 	timers[sphere] = Timer()
 end)

@@ -10,9 +10,9 @@ function Sphere:__init(args)
 		collisions = args.collisions or args.collisions == nil,
 		hue = args.hue or random(0, 360),
 		density = args.density or 100,
-		restitution = args.restitution or 1,
-		drag_coefficient = args.drag_coefficient or 0,
-		friction_coefficient = args.friction_coefficient or 0,
+		restitution = args.restitution or 0.6,
+		drag_coefficient = args.drag_coefficient or 0.47,
+		friction_coefficient = args.friction_coefficient or 0.3,
 		radius = args.radius or 1,
 	}
 
