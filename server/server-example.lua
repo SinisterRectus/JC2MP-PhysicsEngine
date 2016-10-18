@@ -1,3 +1,5 @@
+local create, resume, yield = coroutine.create, coroutine.resume, coroutine.yield
+
 local timers = {}
 local despawn_time = 60 -- seconds
 
@@ -14,11 +16,17 @@ Network:Subscribe('CreateSphere', function(_, sender)
 	timers[sphere] = Timer()
 end)
 
-local sphere, timer
-Events:Subscribe('PreTick', function()
-	sphere, timer = next(timers, sphere)
-	if timer and timer:GetSeconds() > despawn_time then
-		sphere:Remove()
-		timers[sphere] = nil
+local loop = create(function()
+	while true do
+		for sphere, timer in pairs(timers) do
+			if timer:GetSeconds() > despawn_time then
+				sphere:Remove()
+				timers[sphere] = nil
+			end
+			yield()
+		end
+		yield()
 	end
 end)
+
+Events:Subscribe('PreTick', function() assert(resume(loop)) end)
